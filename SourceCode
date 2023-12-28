@@ -1,0 +1,77 @@
+#include<lpc21xx.h>
+#include “LCDCAL.h”
+#include “KEYCAL.h”
+#define Error 12 // Any value other than 0 to 9 is good here
+int get_num(unsigned char);
+char get_key(void);
+void LCD_NUM(unsigned int);
+void STRING(char *t);
+char operation(void);
+void disp_num(int);
+//void cal(void);
+
+int main ()
+{
+char key;
+int num1=0,num2=0,result,func;
+PINSEL0=0X00000000;
+PINSEL1=0X00000000;
+PINSEL2=0X00000000;
+IO0DIR=0x00FF1800; //0x0000 0000 1111 1111 0001 1000 0000 0000 DATA LINE P0.16 to P0.23
+IO1DIR=0X000F0000;
+LCD_INIT();
+while(1)
+{
+COMMAND(0x80);
+STRING(“ENTER 1ST NO.”);
+delay(3000);
+//COMMAND(0x01);
+key=get_key();
+COMMAND(0x80);
+DATA(key);
+delay(1000);
+num1=get_num(key);
+
+COMMAND(0x80);
+STRING(“ENTER 2nd NO.”);
+delay(3000);
+// COMMAND(0x01);
+key=get_key();
+COMMAND(0x80);
+DATA(key);
+delay(1000);
+num2=get_num(key);
+
+COMMAND(0x80);
+STRING(“1.SUM”);
+COMMAND(0x87);
+STRING(“2.MINUS”);
+COMMAND(0xC0);
+STRING(“3.MUL”);
+COMMAND(0xC7);
+STRING(“4.DIVID”);
+delay(5000);
+COMMAND(0x01);
+delay(3000);
+key=get_key();
+COMMAND(0x80);
+DATA(key);
+delay(3000);
+func=get_num(key);
+//cal();
+switch (func)
+{
+// while((func!=1)|(func!=2)|(func!=3)|(func!=4));
+{
+case 1:result=num1+num2;break;
+case 2:result=num1-num2;break;
+case 3:result=num1*num2;break;
+case 4:result=num1/num2;break;
+default:
+delay(1000);
+COMMAND(0x80);
+STRING(“WRONG FUNCTION”);
+delay(2000);
+COMMAND(0x01);
+continue;
+}
