@@ -1,0 +1,44 @@
+ # Simple Calculator Using ARM-7
+
+## Project Overview
+
+This repository contains the code and documentation for a simple calculator project implemented using ARM-7 instruction set simulation. The calculator supports basic arithmetic operations (addition, subtraction, multiplication, and division).
+
+## Project Structure
+
+* report/: Contains the project report (in PDF format).
+* README.md: This file.
+
+## Setup and Usage
+
+1. Install a suitable ARM simulator:** Ensure you have an ARM simulator installed on your system. Some popular options include:
+    - QEMU
+    - Keil MDK
+    - ARM DS-5
+
+2.pen the project in your chosen simulator: Import the project files into your simulator's IDE or workspace.
+
+3.Run the simulation: Execute the main program to start the calculator simulation.
+
+4.Interact with the calculator:  Use the provided input methods to perform calculations.
+
+## Report Details
+
+The project report in the `report/` directory provides comprehensive information on:
+
+* Project objectives
+* Design methodology
+* Implementation details
+* Testing and results
+* Challenges faced and solutions implemented
+
+Key takeaways from the report:
+
+Successful simulation of a simple calculator:** The project demonstrates the use of ARM-7 instruction set for basic arithmetic operations.
+Effective use of ARM assembly language:** The code showcases programming techniques in ARM assembly.
+Potential for further development:** The project can be expanded with more complex features and integration with hardware.
+
+Additional Notes:
+
+Refer to the report for detailed instructions and explanations.**
+Feel free to modify and experiment with the code for further learning.**
